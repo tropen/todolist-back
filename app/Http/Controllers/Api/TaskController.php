@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -10,12 +11,12 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return Task::all();
+        return TaskResource::collection(Task::all());
     }
 
     public function show($id)
     {
-        return Task::findOrFail($id);
+        return new TaskResource(Task::findOrFail($id));
     }
 
     public function store(Request $request)
