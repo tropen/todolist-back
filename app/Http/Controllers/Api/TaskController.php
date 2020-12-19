@@ -21,7 +21,7 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-        return Task::create($request->all());
+        return new TaskResource(Task::create($request->all()));
     }
 
     public function update(Request $request, $id)
@@ -29,7 +29,7 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
         $task->update($request->all());
 
-        return $task;
+        return new TaskResource($task);
     }
 
     public function delete(Request $request, $id)
