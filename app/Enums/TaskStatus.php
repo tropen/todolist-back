@@ -11,18 +11,6 @@ class TaskStatus
     const PLANNED = 1;
     const COMPLETED = 2;
 
-    //todo check
-    public function toString($status): string
-    {
-        if ($status == self::PLANNED) {
-            return 'planned';
-        } elseif ($status == self::COMPLETED) {
-            return 'completed';
-        }
-
-        return 'error';
-    }
-
     /**
      * @return array
      * @throws \ReflectionException

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class TaskController extends Controller
 
     public function show($id)
     {
-        return Task::find($id);
+        return Task::findOrFail($id);
     }
 
     public function store(Request $request)
@@ -36,6 +36,6 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
         $task->delete();
 
-        return json_encode(204);
+        return 204;
     }
 }
