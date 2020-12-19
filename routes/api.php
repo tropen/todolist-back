@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['cors', 'json.response']], function () {
+    Route::get('tasks/statuses', 'TaskController@getTaskStatuses');
     Route::apiResource('tasks', 'TaskController');
 });
 

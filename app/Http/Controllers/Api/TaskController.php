@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Enums\TaskStatus;
 use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -38,5 +39,10 @@ class TaskController extends Controller
         $task->delete();
 
         return 204;
+    }
+
+    public function getTaskStatuses()
+    {
+        return TaskStatus::getStrings();
     }
 }

@@ -21,4 +21,13 @@ class TaskStatus
 
         return array_values($rClass->getConstants());
     }
+
+    public static function getStrings(): array
+    {
+        $result = [];
+        $result[self::PLANNED] = 'Planned';
+        $result[self::COMPLETED] = 'Completed';
+
+        return $result;
+    }
 }
