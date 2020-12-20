@@ -33,12 +33,12 @@ class TaskController extends Controller
         return new TaskResource($task);
     }
 
-    public function delete(Request $request, $id)
+    public function destroy(Request $request, $id)
     {
         $task = Task::findOrFail($id);
         $task->delete();
 
-        return 204;
+        return response('', 204);
     }
 
     public function getTaskStatuses()
