@@ -84,7 +84,7 @@ This means that you can install Frontend while docker is building Backend
     ```
     git clone https://github.com/tropen/todolist-front.git
     ```
-3. go to folder:
+3. Go to todolist-front folder:
    ```
    cd todolist-front
    ```
@@ -92,11 +92,19 @@ This means that you can install Frontend while docker is building Backend
    ```
    npm i
    ```
-5. run in development mode. [Check](http://localhost:8080)
+5. run in development mode. Default port is 8080. [Check](http://localhost:8080)
    ```
    npm run serve
    ```
-   
-## Install
-### Backend
-### Frontend
+   If backend is offline, then you'll see 504 error
+   ```
+   504 Server not responding
+   ```
+
+## Usage
+Task list is not attached to the user and shows all the tasks.
+Program gives the opportunity to:
+- create new task
+- delete task
+- update task status
+- 
