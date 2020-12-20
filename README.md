@@ -37,25 +37,62 @@ This means that you can install Frontend while docker is building Backend
 6. After docker-compose finishes installation and starts working (their names would be like: php_1, nginx_1 mysql_1) you can continue with laravel installation.
    Find docker container with name like `todolist-back_php_1` and connect to it.
     ```
-        docker ps;
-        docker exec -it todolist-back_php_1 ps; 
+        docker ps
+   
+        docker exec -it todolist-back_php_1 sh 
     ```
-7. Install laravel in default way from the container:
+7. Install laravel in default way from the container.
+   Check if composer is installed: `composer -v`
+   If it is not installed, then install composer to container.
+   `https://getcomposer.org/download/`
+
    ```   
    composer install
    ```
-   Copy .env from .env.example
+8. Copy .env from .env.example and check the DB settings. They Mysql was automatically configured with docker-compose. Mysql settings are in docker-compose.yml.
+   `cp .env.example .env`
+9. Set key. Migrate. Seed.
    ```
    php artisan key:generate
    php artisan migrate:install
+   php artisan migrate --seed
    ```
-
+10. exit container, check if site is running: [Link](http://localhost:8001).
+    Result should be:
+    ```
+    {"error":"Wrong request"}
+    ```
+10. Problems.
+    - Permission problem with storage/logs/laravel.log
+    ```
+    docker exec -it todolist-back_php_1 sh 
+     
+    chown www-data:www-data -R /var/www/storage
+    chmod 775 -R /var/www/storage
+    ```
+    
+    - Problem with routes/config
+    ```
+    php artisan optimize:clear
+    php artisan config:cache
+    php artisan route:cache
+    ```
 
 ### Frontend
 1. Move to project directory. 
 2. Clone project from git
    `git clone https://github.com/tropen/todolist-front.git`
-
+3. go to folder:
+    `cd todolist-front`
+4. install dependencies
+   ```
+   npm i
+   ```
+5. run in development mode. [Check](http://localhost:8001)
+   ```
+   npm run serve
+   ```
+   
 ## Install
 ### Backend
 ### Frontend
