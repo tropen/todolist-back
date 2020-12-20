@@ -15,8 +15,8 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            //todo add user id foreign
             $table->string('name');
+            $table->text('description');
             $table->integer('status');
             $table->timestamps();
         });
