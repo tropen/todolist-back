@@ -88,7 +88,7 @@ This means that you can install Frontend while docker is building Backend
    ```
    npm i
    ```
-5. run in development mode. [Check](http://localhost:8001)
+5. run in development mode. [Check](http://localhost:8080)
    ```
    npm run serve
    ```
