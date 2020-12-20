@@ -81,9 +81,13 @@ This means that you can install Frontend while docker is building Backend
 ### Frontend
 1. Move to project directory. 
 2. Clone project from git
-   `git clone https://github.com/tropen/todolist-front.git`
+    ```
+    git clone https://github.com/tropen/todolist-front.git
+    ```
 3. go to folder:
-    `cd todolist-front`
+   ```
+   cd todolist-front
+   ```
 4. install dependencies
    ```
    npm i
